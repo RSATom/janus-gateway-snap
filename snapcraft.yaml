@@ -1,0 +1,88 @@
+name: janus-gateway
+base: core18
+version: git
+summary: Janus WebRTC Server
+description: |
+  Janus is an open source, general purpose, WebRTC server designed and developed by Meetecho.
+license: GPL-3.0
+grade: stable
+confinement: strict
+architectures:
+  - build-on: amd64
+  - build-on: i386
+  - build-on: armhf
+layout:
+  /opt/janus/lib/janus:
+    bind: $SNAP/opt/janus/lib/janus
+  /opt/janus/etc/janus:
+    bind: $SNAP_COMMON/etc
+  /opt/janus/share/janus/streams:
+    bind: $SNAP/opt/janus/share/janus/streams
+  /opt/janus/share/janus/recordings:
+    bind: $SNAP_COMMON/share/janus/recordings
+parts:
+  lws:
+    plugin: cmake
+    source-type: git
+    source: https://github.com/warmcat/libwebsockets.git
+    source-branch: v3.1-stable
+    configflags:
+      - -DLWS_WITHOUT_TESTAPPS=ON
+    build-packages:
+      - libssl-dev
+    stage-packages:
+      - libssl1.1
+  nice:
+    plugin: autotools
+    source-type: git
+    source: https://gitlab.freedesktop.org/libnice/libnice
+    source-tag: 0.1.16
+    build-packages:
+      - pkg-config
+      - libglib2.0-dev
+      - gtk-doc-tools
+  janus:
+    plugin: autotools
+    source-type: git
+    source: https://github.com/meetecho/janus-gateway.git
+    configflags:
+      - --prefix=/opt/janus
+    after:
+      - lws
+      - nice
+    build-packages:
+      - g++
+      - make
+      - libmicrohttpd-dev
+      - libjansson-dev
+      - libssl-dev
+      - libsrtp-dev
+      - libsofia-sip-ua-dev
+      - libglib2.0-dev
+      - libopus-dev
+      - libogg-dev
+      - libcurl4-openssl-dev
+      - liblua5.3-dev
+      - libconfig-dev
+      - libsrtp2-dev
+      - pkg-config
+      - gengetopt
+      - libtool
+      - automake
+    stage-packages:
+      - libconfig9
+      - libjansson4
+      - libsrtp2-1
+      - libcurl4
+      - libogg0
+      - libmicrohttpd12
+      - libopus0
+      - libsofia-sip-ua0
+
+apps:
+  janus-gateway:
+    command: opt/janus/bin/janus -o
+    daemon: simple
+    plugs:
+      - network-bind
+      - network

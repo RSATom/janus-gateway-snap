@@ -18,6 +18,8 @@ layout:
     bind: $SNAP_COMMON/etc
   /opt/janus/share/janus/streams:
     bind: $SNAP/opt/janus/share/janus/streams
+  /opt/janus/share/janus/demos:
+    bind: $SNAP/opt/janus/share/janus/demos
   /opt/janus/share/janus/recordings:
     bind: $SNAP_COMMON/share/recordings
 parts:

@@ -6,6 +6,7 @@ Helper repo for build Janus WebRTC Server on build.snapcraft.io
 ## Directories mapping
 * Configs: `$SNAP_COMMON/etc` (`/var/snap/janus-gateway/common/etc`)
 * Recordings: `$SNAP_COMMON/share/recordings` (`/var/snap/janus-gateway/common/share/recordings`)
+* Voicemail: `$SNAP_COMMON/share/voicemail` (`/var/snap/janus-gateway/common/share/voicemail`)
 
 <br>
 

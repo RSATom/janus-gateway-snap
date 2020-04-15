@@ -43,6 +43,12 @@ parts:
       - pkg-config
       - libglib2.0-dev
       - gtk-doc-tools
+  usrsctp:
+    plugin: autotools
+    source-type: git
+    source: https://github.com/sctplab/usrsctp.git
+    configflags:
+      - --prefix=/usr
   janus:
     plugin: autotools
     source-type: git
@@ -56,6 +62,7 @@ parts:
     after:
       - lws
       - nice
+      - usrsctp
     build-packages:
       - g++
       - make

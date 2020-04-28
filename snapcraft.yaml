@@ -53,6 +53,7 @@ parts:
         snapcraftctl set-version "$(git describe)"
     configflags:
       - --prefix=/opt/janus
+      - --disable-aes-gcm
     after:
       - lws
       - nice

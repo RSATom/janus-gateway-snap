@@ -54,6 +54,7 @@ parts:
     configflags:
       - --prefix=/opt/janus
       - --disable-aes-gcm
+      - --enable-post-processing
     after:
       - lws
       - nice
@@ -72,6 +73,9 @@ parts:
       - liblua5.3-dev
       - libconfig-dev
       - libsrtp2-dev
+      - libavutil-dev
+      - libavcodec-dev
+      - libavformat-dev
       - pkg-config
       - gengetopt
       - libtool
@@ -85,6 +89,9 @@ parts:
       - libmicrohttpd12
       - libopus0
       - libsofia-sip-ua0
+      - libavutil55
+      - libavcodec57
+      - libavformat57
 
 apps:
   janus-gateway:
@@ -93,3 +100,5 @@ apps:
     plugs:
       - network-bind
       - network
+  janus-pp-rec:
+    command: opt/janus/bin/janus-pp-rec

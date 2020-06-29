@@ -38,7 +38,7 @@ parts:
     plugin: autotools
     source-type: git
     source: https://gitlab.freedesktop.org/libnice/libnice
-    source-tag: 0.1.16
+    source-tag: 0.1.17
     build-packages:
       - pkg-config
       - libglib2.0-dev

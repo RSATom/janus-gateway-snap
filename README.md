@@ -3,10 +3,17 @@
 # janus-gateway-snap
 Helper repo for build Janus WebRTC Server on build.snapcraft.io
 
-## Directories mapping
-* Configs: `$SNAP_COMMON/etc` (`/var/snap/janus-gateway/common/etc`)
-* Recordings: `$SNAP_COMMON/share/recordings` (`/var/snap/janus-gateway/common/share/recordings`)
-* Voicemail: `$SNAP_COMMON/share/voicemail` (`/var/snap/janus-gateway/common/share/voicemail`)
+## Directories mappings
+* `/opt/janus/lib/janus` -> `$SNAP/opt/janus/lib/janus`
+* `/opt/janus/share/janus/streams`-> `$SNAP/opt/janus/share/janus/streams`
+* `/opt/janus/etc/janus` -> `$SNAP_COMMON/etc`
+* `/opt/janus/share/janus/recordings` -> `$SNAP_COMMON/share/recordings`
+* `/opt/janus/share/janus/demos/voicemail` -> `$SNAP_COMMON/share/voicemail`
+
+So you can find:
+* Configs in `/var/snap/janus-gateway/common/etc` (i.e. `$SNAP_COMMON/etc`)
+* Recordings in `/var/snap/janus-gateway/common/share/recordings` (i.e. `$SNAP_COMMON/share/recordings`)
+* Voicemail in `/var/snap/janus-gateway/common/share/voicemail` (i.e. `$SNAP_COMMON/share/voicemail`)
 
 ## Some hints
 
@@ -14,7 +21,6 @@ Helper repo for build Janus WebRTC Server on build.snapcraft.io
 * Install Janus edge snap (i.e. built from latest `master`): `sudo snap install janus-gateway --edge`;
 * View Janus log: `sudo snap logs janus-gateway`;
 * View Janus log and wait for new lines: `sudo snap logs janus-gateway -f`;
-* Janus snap configs directory: `/var/snap/janus-gateway/common/etc/`;
 * Janus snap restart (required after configs edit): `sudo snap restart janus-gateway`;
 
 ## Getting Started Guide

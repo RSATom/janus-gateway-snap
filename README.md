@@ -30,7 +30,7 @@ Helper repo for build Janus WebRTC Server on build.snapcraft.io
  - `sudo snap logs janus-gateway`
  - `sudo snap logs janus-gateway -f`
  - `sudo snap logs janus-gateway -n=all`
- -` sudo systemctl status snap.janus-gateway.janus-gateway.service`
+ - ` sudo systemctl status snap.janus-gateway.janus-gateway.service`
 5.  `sudo lsof -i -P -n | grep janus` (check ports being listened to)
 6.  `cat /var/snap/janus-gateway/common/etc` to modify config values
 7. run the demos locally: `cd /snap/janus-gateway/current/opt/janus/share/janus/demos && python -m SimpleHTTPServer 8080`

@@ -17,6 +17,26 @@ Helper repo for build Janus WebRTC Server on build.snapcraft.io
 * Janus snap configs directory: `/var/snap/janus-gateway/common/etc/`;
 * Janus snap restart (required after configs edit): `sudo snap restart janus-gateway`;
 
+## Getting Started Guide
+1. `sudo apt update`
+2. `sudo apt install snapd`
+
+3. Do you need data channel support?
+- Y:  stable doesn't have it. See [this discussion](https://github.com/RSATom/janus-gateway-snap/issues/9). If you can deal with daily restarts (e.g., just local testing), then `sudo snap install janus-gateway --edge` will have it. For prod environments, either switch it to dev mode to stop updates, or create your own snap.
+- N:  `sudo snap install janus-gateway` 
+
+4. Use logs to check if it's running. Many options:
+ - `snap list janus-gateway`
+ - `sudo snap logs janus-gateway`
+ - `sudo snap logs janus-gateway -f`
+ - `sudo snap logs janus-gateway -n=all`
+ - ` sudo systemctl status snap.janus-gateway.janus-gateway.service`
+5.  `sudo lsof -i -P -n | grep janus` (check ports being listened to)
+6.  `cat /var/snap/janus-gateway/common/etc` to modify config values
+7. run the demos locally: `cd /snap/janus-gateway/current/opt/janus/share/janus/demos && python -m SimpleHTTPServer 8080`
+8. Then visit http://localhost:8000/echotest.html in your browser.
+
+
 <br>
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/janus-gateway)

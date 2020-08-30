@@ -49,6 +49,14 @@ parts:
     source: https://github.com/sctplab/usrsctp.git
     configflags:
       - --prefix=/usr
+  libsrtp:
+    plugin: autotools
+    source-type: git
+    source: https://github.com/cisco/libsrtp.git
+    source-tag: v2.3.0
+    configflags:
+      - --prefix=/usr
+      - --enable-openssl
   janus:
     plugin: autotools
     source-type: git
@@ -58,19 +66,18 @@ parts:
         snapcraftctl set-version "$(git describe)"
     configflags:
       - --prefix=/opt/janus
-      - --disable-aes-gcm
       - --enable-post-processing
     after:
       - lws
       - nice
       - usrsctp
+      - libsrtp
     build-packages:
       - g++
       - make
       - libmicrohttpd-dev
       - libjansson-dev
       - libssl-dev
-      - libsrtp-dev
       - libsofia-sip-ua-dev
       - libglib2.0-dev
       - libopus-dev
@@ -78,7 +85,6 @@ parts:
       - libcurl4-openssl-dev
       - liblua5.3-dev
       - libconfig-dev
-      - libsrtp2-dev
       - libavutil-dev
       - libavcodec-dev
       - libavformat-dev
@@ -89,7 +95,6 @@ parts:
     stage-packages:
       - libconfig9
       - libjansson4
-      - libsrtp2-1
       - libcurl4
       - libogg0
       - libmicrohttpd12

@@ -1,4 +1,5 @@
-[![Snap Status](https://build.snapcraft.io/badge/RSATom/janus-gateway-snap.svg)](https://build.snapcraft.io/user/RSATom/janus-gateway-snap)
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/janus-gateway)
 
 # janus-gateway-snap
 Helper repo for build Janus WebRTC Server on build.snapcraft.io
@@ -39,7 +40,3 @@ So you can find:
 6. Open `/var/snap/janus-gateway/common/etc` to view/modify configs
 7. Run the demos locally: `cd /snap/janus-gateway/current/opt/janus/share/janus/demos && python -m SimpleHTTPServer 8000`
 8. Then visit http://localhost:8000 in your browser.
-
-<br>
-
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/janus-gateway)

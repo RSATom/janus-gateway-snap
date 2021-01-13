@@ -57,6 +57,17 @@ parts:
     configflags:
       - --prefix=/usr
       - --enable-openssl
+  mqtt:
+    plugin: cmake
+    source-type: git
+    source: https://github.com/eclipse/paho.mqtt.c.git
+    source-tag: v1.3.8
+    configflags:
+      - -DPAHO_BUILD_SHARED=FALSE
+      - -DPAHO_BUILD_STATIC=TRUE
+      - -DPAHO_WITH_SSL=TRUE
+      - -DPAHO_ENABLE_TESTING=FALSE
+      - -DPAHO_ENABLE_CPACK=FALSE
   janus:
     plugin: autotools
     source-type: git
@@ -72,6 +83,7 @@ parts:
       - nice
       - usrsctp
       - libsrtp
+      - mqtt
     build-packages:
       - g++
       - make

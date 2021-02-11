@@ -58,7 +58,7 @@ parts:
     plugin: autotools
     source-type: git
     source: https://github.com/meetecho/janus-gateway.git
-    source-tag: v0.10.9
+    source-tag: v0.10.10
     override-pull: |
         snapcraftctl pull
         snapcraftctl set-version "$(git describe)"

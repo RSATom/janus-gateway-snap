@@ -50,6 +50,7 @@ parts:
     plugin: autotools
     source-type: git
     source: https://github.com/sctplab/usrsctp.git
+    source-tag: 0.9.5.0
     configflags:
       - --prefix=/usr
   libsrtp:

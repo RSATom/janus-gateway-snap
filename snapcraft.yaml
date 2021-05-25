@@ -36,10 +36,12 @@ parts:
     stage-packages:
       - libssl1.1
   nice:
-    plugin: autotools
+    plugin: meson
     source-type: git
-    source: https://gitlab.freedesktop.org/libnice/libnice
-    source-tag: 0.1.17
+    source: https://github.com/libnice/libnice.git
+    source-branch: latest-release
+    meson-parameters:
+      - --prefix=/usr
     build-packages:
       - pkg-config
       - libglib2.0-dev

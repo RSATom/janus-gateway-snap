@@ -117,6 +117,7 @@ parts:
       - libavcodec57
       - libavformat57
       - librabbitmq4
+      - libpcap0.8
 
 apps:
   janus-gateway:

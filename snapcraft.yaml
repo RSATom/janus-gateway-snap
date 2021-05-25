@@ -44,6 +44,13 @@ parts:
       - pkg-config
       - libglib2.0-dev
       - gtk-doc-tools
+  usrsctp:
+    plugin: autotools
+    source-type: git
+    source: https://github.com/sctplab/usrsctp.git
+    source-tag: 0.9.5.0
+    configflags:
+      - --prefix=/usr
   mqtt:
     plugin: cmake
     source-type: git
@@ -71,6 +78,7 @@ parts:
       - lws
       - nice
       - mqtt
+      - usrsctp
     build-packages:
       - g++
       - make

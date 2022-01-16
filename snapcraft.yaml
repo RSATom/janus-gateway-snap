@@ -1,5 +1,5 @@
 name: janus-gateway
-base: core18
+base: core20
 summary: Janus WebRTC Server
 adopt-info: janus
 description: |
@@ -29,7 +29,7 @@ parts:
     source-type: git
     source: https://github.com/warmcat/libwebsockets.git
     source-branch: v3.2-stable
-    configflags:
+    cmake-parameters:
       - -DLWS_WITHOUT_TESTAPPS=ON
     build-packages:
       - libssl-dev
@@ -51,14 +51,14 @@ parts:
     source-type: git
     source: https://github.com/sctplab/usrsctp.git
     source-tag: 0.9.5.0
-    configflags:
+    autotools-configure-parameters:
       - --prefix=/usr
   mqtt:
     plugin: cmake
     source-type: git
     source: https://github.com/eclipse/paho.mqtt.c.git
     source-tag: v1.3.8
-    configflags:
+    cmake-parameters:
       - -DPAHO_BUILD_SHARED=FALSE
       - -DPAHO_BUILD_STATIC=TRUE
       - -DPAHO_WITH_SSL=TRUE
@@ -72,7 +72,7 @@ parts:
     override-pull: |
         snapcraftctl pull
         snapcraftctl set-version "$(git describe)"
-    configflags:
+    autotools-configure-parameters:
       - --prefix=/opt/janus
       - --disable-aes-gcm
       - --enable-post-processing
@@ -113,9 +113,9 @@ parts:
       - libmicrohttpd12
       - libopus0
       - libsofia-sip-ua0
-      - libavutil55
-      - libavcodec57
-      - libavformat57
+      - libavutil56
+      - libavcodec58
+      - libavformat58
       - librabbitmq4
       - libpcap0.8
 

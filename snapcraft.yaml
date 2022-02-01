@@ -67,6 +67,7 @@ parts:
       - -DPAHO_WITH_SSL=TRUE
       - -DPAHO_ENABLE_TESTING=FALSE
       - -DPAHO_ENABLE_CPACK=FALSE
+      - -DCMAKE_INSTALL_PREFIX=/usr
   janus:
     plugin: autotools
     source-type: git

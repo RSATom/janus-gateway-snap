@@ -91,7 +91,8 @@ parts:
   janus:
     plugin: autotools
     source-type: git
-    source: https://github.com/meetecho/janus-gateway.git
+    source: https://github.com/RSATom/janus-gateway.git
+    source-branch: stable-zvfomg
     build-environment:
       - CFLAGS: "${CFLAGS:+$CFLAGS} -O1 -g3 -ggdb3 -fno-omit-frame-pointer -fsanitize=address"
       - LDFLAGS: "${LDFLAGS:+$LDFLAGS} -fsanitize=address"

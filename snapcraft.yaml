@@ -74,7 +74,6 @@ parts:
         snapcraftctl set-version "$(git describe)"
     autotools-configure-parameters:
       - --prefix=/opt/janus
-      - --disable-aes-gcm
       - --enable-post-processing
     after:
       - lws

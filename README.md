@@ -17,19 +17,15 @@ So you can find:
 * Voicemail in `/var/snap/janus-gateway/common/share/voicemail` (i.e. `$SNAP_COMMON/share/voicemail`)
 
 ## Some hints
-
-* Install Janus latest stable snap: `sudo snap install janus-gateway`;
-* Install Janus edge snap (i.e. built from latest `master`): `sudo snap install janus-gateway --edge`;
-* View Janus log: `sudo snap logs janus-gateway`;
-* View Janus log and wait for new lines: `sudo snap logs janus-gateway -f`;
-* Janus snap restart (required after configs edit): `sudo snap restart janus-gateway`;
+* To install Janus latest stable snap: `sudo snap install janus-gateway`;
+* To install Janus edge snap (i.e. built from latest `master`): `sudo snap install janus-gateway --edge`;
+* To view Janus log: `sudo snap logs janus-gateway`;
+* To view Janus log and wait for new lines: `sudo snap logs janus-gateway -f`;
+* For Janus snap restart (required after configs edit): `sudo snap restart janus-gateway`;
 
 ## Getting Started Guide
 1. `sudo apt update`
 2. `sudo apt install snapd`
-3. Do you need data channel support?
-- Y:  stable doesn't have it. See [this discussion](https://github.com/RSATom/janus-gateway-snap/issues/9). If you can deal with daily restarts (e.g., just local testing), then `sudo snap install janus-gateway --edge` will have it. For prod environments, either switch it to dev mode to stop updates, or create your own snap.
-- N:  `sudo snap install janus-gateway` 
 4. Use logs to check if it's running. Many options:
  - `snap list janus-gateway`
  - `sudo snap logs janus-gateway`

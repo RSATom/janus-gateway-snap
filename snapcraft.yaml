@@ -4,6 +4,8 @@ summary: Janus WebRTC Server
 adopt-info: janus
 description: |
   Janus is an open source, general purpose, WebRTC server designed and developed by Meetecho.
+
+  **Config files location:** /var/snap/janus-gateway/common/etc ($SNAP_COMMON/etc)
 license: GPL-3.0
 grade: stable
 confinement: strict
@@ -78,8 +80,8 @@ parts:
     after:
       - lws
       - nice
-      - mqtt
       - usrsctp
+      - mqtt
     build-packages:
       - g++
       - make

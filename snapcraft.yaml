@@ -33,6 +33,7 @@ parts:
     source-branch: v3.2-stable
     cmake-parameters:
       - -DLWS_WITHOUT_TESTAPPS=ON
+      - -DCMAKE_INSTALL_PREFIX=/usr
     build-packages:
       - libssl-dev
     stage-packages:

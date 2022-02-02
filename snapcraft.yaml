@@ -56,6 +56,14 @@ parts:
     source-tag: 0.9.5.0
     autotools-configure-parameters:
       - --prefix=/usr
+  libsrtp:
+    plugin: autotools
+    source-type: git
+    source: https://github.com/cisco/libsrtp.git
+    source-tag: v2.3.0
+    autotools-configure-parameters:
+      - --prefix=/usr
+      - --enable-openssl
   mqtt:
     plugin: cmake
     source-type: git
@@ -83,6 +91,7 @@ parts:
       - lws
       - nice
       - usrsctp
+      - libsrtp
       - mqtt
     build-packages:
       - g++
@@ -97,7 +106,6 @@ parts:
       - libcurl4-openssl-dev
       - liblua5.3-dev
       - libconfig-dev
-      - libsrtp2-dev
       - libavutil-dev
       - libavcodec-dev
       - libavformat-dev
@@ -109,7 +117,6 @@ parts:
     stage-packages:
       - libconfig9
       - libjansson4
-      - libsrtp2-1
       - libcurl4
       - libogg0
       - libmicrohttpd12

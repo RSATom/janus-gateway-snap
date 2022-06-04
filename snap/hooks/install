@@ -1,6 +1,0 @@
-#!/bin/sh -e
-
-for config in $SNAP/opt/janus/etc/janus/*.sample; do
-	file="${config##*/}"
-	cp "$config" "$SNAP_COMMON"/etc/"${file%.sample}"
-done

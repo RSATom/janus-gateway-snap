@@ -4,3 +4,5 @@ for config in $SNAP/opt/janus/etc/janus/*.sample; do
 	file="${config##*/}"
 	cp "$config" "$SNAP_COMMON"/etc/"${file%.sample}"
 done
+
+cp "$SNAP/opt/janus/etc/janus/janus.plugin.ptt-audiobridge.jcfg.sample" "$SNAP_COMMON/etc/janus.plugin.ptt-audiobridge.jcfg"

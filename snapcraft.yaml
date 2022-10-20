@@ -145,6 +145,21 @@ parts:
       - libpcap0.8
       - libspeexdsp1
       - libasan6
+  ptt-plugin:
+    plugin: cmake
+    source: https://github.com/RSATom/janus-ptt-audiobridge-plugin.git
+    after:
+      - janus
+    cmake-parameters:
+      - -DCMAKE_FIND_ROOT_PATH=$SNAPCRAFT_STAGE/opt/janus
+    build-packages:
+      - pkg-config
+      - g++
+      - make
+      - libglib2.0-dev
+      - libjansson-dev
+      - libopus-dev
+      - libssl-dev
 
 apps:
   janus-gateway:

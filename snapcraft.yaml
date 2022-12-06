@@ -144,6 +144,18 @@ parts:
       - libjansson-dev
       - libopus-dev
       - libssl-dev
+  play-plugin:
+    plugin: cmake
+    source: https://github.com/RSATom/janus-play-plugin.git
+    after:
+      - janus
+    cmake-parameters:
+      - -DCMAKE_FIND_ROOT_PATH=$SNAPCRAFT_STAGE/opt/janus
+    build-packages:
+      - pkg-config
+      - g++
+      - make
+      - libjansson-dev
 
 apps:
   janus-gateway:

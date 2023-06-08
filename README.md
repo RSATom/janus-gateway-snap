@@ -22,6 +22,12 @@ So you can find:
 * To view Janus log: `sudo snap logs janus-gateway`;
 * To view Janus log and wait for new lines: `sudo snap logs janus-gateway -f`;
 * For Janus snap restart (required after configs edit): `sudo snap restart janus-gateway`;
+* To resolve ["Too many open files"](https://github.com/RSATom/janus-gateway-snap/issues/7) run `systemctl edit snap.janus-gateway.janus-gateway.service` and put there something like:
+```
+[Service]
+LimitNOFILE=65536
+```
+
 
 ## Getting Started Guide
 1. `sudo apt update`

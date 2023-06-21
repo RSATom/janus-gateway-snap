@@ -1,5 +1,5 @@
 name: janus-gateway
-base: core20
+base: core22
 summary: Janus WebRTC Server
 adopt-info: janus
 description: |
@@ -68,7 +68,7 @@ parts:
     plugin: cmake
     source-type: git
     source: https://github.com/eclipse/paho.mqtt.c.git
-    source-tag: v1.3.8
+    source-tag: v1.3.12
     cmake-parameters:
       - -DPAHO_BUILD_SHARED=FALSE
       - -DPAHO_BUILD_STATIC=TRUE

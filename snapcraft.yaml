@@ -109,6 +109,7 @@ parts:
       - libavcodec-dev
       - libavformat-dev
       - librabbitmq-dev
+      - libspeexdsp-dev
       - pkg-config
       - gengetopt
       - libtool
@@ -126,6 +127,7 @@ parts:
       - libavformat58
       - librabbitmq4
       - libpcap0.8
+      - libspeexdsp1
 
 apps:
   janus-gateway:

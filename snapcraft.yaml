@@ -92,7 +92,7 @@ parts:
     plugin: autotools
     source-type: git
     source: https://github.com/meetecho/janus-gateway.git
-    source-tag: v0.14.3
+    source-tag: v0.14.4
     override-pull: |
         craftctl default
         craftctl set version="$(git describe)"

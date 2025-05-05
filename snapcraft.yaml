@@ -1,5 +1,5 @@
 name: janus-gateway
-base: core22
+base: core24
 summary: Janus WebRTC Server
 adopt-info: janus
 description: |
@@ -9,10 +9,9 @@ description: |
 license: GPL-3.0
 grade: devel
 confinement: strict
-architectures:
-  - build-on: amd64
-  - build-on: armhf
-  - build-on: arm64
+platforms:
+  amd64:
+  arm64:
 layout:
   /opt/janus/lib/janus:
     bind: $SNAP/opt/janus/lib/janus
@@ -25,38 +24,15 @@ layout:
   /opt/janus/share/janus/demos/voicemail:
     bind: $SNAP_COMMON/share/voicemail
 parts:
-  meson-deps:
-    plugin: nil
-    override-build: |
-      pip install meson
-    build-packages:
-      - python3-pip
-  lws:
-    plugin: cmake
-    source-type: git
-    source: https://github.com/warmcat/libwebsockets.git
-    source-branch: v4.3-stable
-    cmake-parameters:
-      - -DLWS_WITHOUT_TESTAPPS=ON
-      - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DLWS_MAX_SMP=1
-      - -DLWS_WITHOUT_EXTENSIONS=0
-      - -DCMAKE_C_FLAGS="-fpic"
-    build-packages:
-      - libssl-dev
-      - libglib2.0-dev
-    stage-packages:
-      - libssl3
   nice:
     plugin: meson
     source-type: git
     source: https://github.com/libnice/libnice.git
     source-branch: latest-release
-    after:
-      - meson-deps
     meson-parameters:
       - --prefix=/usr
     build-packages:
+      - meson
       - pkg-config
       - libglib2.0-dev
       - gtk-doc-tools
@@ -72,7 +48,7 @@ parts:
     plugin: autotools
     source-type: git
     source: https://github.com/cisco/libsrtp.git
-    source-tag: v2.5.0
+    source-tag: v2.7.0
     autotools-configure-parameters:
       - --prefix=/usr
       - --enable-openssl
@@ -80,7 +56,7 @@ parts:
     plugin: cmake
     source-type: git
     source: https://github.com/eclipse/paho.mqtt.c.git
-    source-tag: v1.3.13
+    source-tag: v1.3.14
     cmake-parameters:
       - -DPAHO_BUILD_SHARED=FALSE
       - -DPAHO_BUILD_STATIC=TRUE
@@ -102,7 +78,6 @@ parts:
       - --prefix=/opt/janus
       - --enable-post-processing
     after:
-      - lws
       - nice
       - usrsctp
       - libsrtp
@@ -110,6 +85,7 @@ parts:
     build-packages:
       - g++
       - make
+      - libwebsockets-dev
       - libmicrohttpd-dev
       - libjansson-dev
       - libssl-dev
@@ -133,15 +109,16 @@ parts:
       - libjansson4
       - libcurl4
       - libogg0
+      - libwebsockets19t64
       - libmicrohttpd12
       - libopus0
       - libsofia-sip-ua0
-      - libavutil56
-      - libavcodec58
-      - libavformat58
+      - libavutil58
+      - libavcodec60
+      - libavformat60
       - librabbitmq4
       - libpcap0.8
-      - libasan6
+      - libasan8
 
 apps:
   janus-gateway:

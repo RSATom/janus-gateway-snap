@@ -48,7 +48,7 @@ parts:
     plugin: autotools
     source-type: git
     source: https://github.com/cisco/libsrtp.git
-    source-tag: v2.7.0
+    source-tag: v2.8.0
     autotools-configure-parameters:
       - --prefix=/usr
       - --enable-openssl
@@ -56,7 +56,7 @@ parts:
     plugin: cmake
     source-type: git
     source: https://github.com/eclipse/paho.mqtt.c.git
-    source-tag: v1.3.14
+    source-tag: v1.3.16
     cmake-parameters:
       - -DPAHO_BUILD_SHARED=FALSE
       - -DPAHO_BUILD_STATIC=TRUE

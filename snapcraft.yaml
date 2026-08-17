@@ -68,9 +68,6 @@ parts:
     plugin: autotools
     source-type: git
     source: https://github.com/meetecho/janus-gateway.git
-    build-environment:
-      - CFLAGS: "${CFLAGS:+$CFLAGS} -O1 -g3 -ggdb3 -fno-omit-frame-pointer -fsanitize=address"
-      - LDFLAGS: "${LDFLAGS:+$LDFLAGS} -fsanitize=address"
     override-pull: |
         craftctl default
         craftctl set version="$(git describe)"
@@ -118,7 +115,6 @@ parts:
       - libavformat60
       - librabbitmq4
       - libpcap0.8
-      - libasan8
 
 apps:
   janus-gateway:
